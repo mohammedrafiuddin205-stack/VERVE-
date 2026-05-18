@@ -1,0 +1,25 @@
+{
+    "name": "VERVE-Production-Terminal-Environment",
+    "image": "mcr.microsoft.com/devcontainers/java:1-17-bullseye",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:1": {
+            "configureZshAsDefaultShell": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-gradle",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                "java.configuration.updateBuildConfiguration": "automatic",
+                "java.import.gradle.enabled": true
+            }
+        }
+    },
+    "forwardPorts": [8080, 5037],
+    "postCreateCommand": "bash .devcontainer/setup-sdk.sh",
+    "remoteUser": "vscode"
+}
